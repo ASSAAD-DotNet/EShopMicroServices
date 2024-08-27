@@ -1,0 +1,14 @@
+@baseUrl=http://localhost:5000
+
+###
+POST {{baseUrl}}/products/
+Accept:application/json
+Content-Type:application/json
+
+{
+  "Name":"Product 1",
+  "Description":"Description Product 1",
+  "Category":["Cat 1"],
+  "ImageFile":"ImageFile  Product 1",
+  "Price":102.52
+}

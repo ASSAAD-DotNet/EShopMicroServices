@@ -5,6 +5,10 @@ VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{F94A4156-C2BA-4391-989F-AB42A853F2E4}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{3B282211-C93F-42DA-A3DB-556EBB05EA07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingBlocks", "BuildingBlocks\BuildingBlocks.csproj", "{11CFF6A7-39BB-4322-9A22-0E43A1840431}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{F94A4156-C2BA-4391-989F-AB42A853F2E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F94A4156-C2BA-4391-989F-AB42A853F2E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F94A4156-C2BA-4391-989F-AB42A853F2E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11CFF6A7-39BB-4322-9A22-0E43A1840431}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11CFF6A7-39BB-4322-9A22-0E43A1840431}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11CFF6A7-39BB-4322-9A22-0E43A1840431}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11CFF6A7-39BB-4322-9A22-0E43A1840431}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{11CFF6A7-39BB-4322-9A22-0E43A1840431} = {3B282211-C93F-42DA-A3DB-556EBB05EA07}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {408FE876-4B90-4C02-8046-BF1BC0F6A114}

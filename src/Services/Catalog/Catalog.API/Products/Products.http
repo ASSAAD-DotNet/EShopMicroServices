@@ -16,7 +16,6 @@ Accept:application/json
 Content-Type:application/json
 
 {
-  "Name":"Product 2",
   "Description":"Description Product 2",
   "Category":["Cat1","Cat2"],
   "ImageFile":"ImageFile  Product 2",

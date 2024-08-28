@@ -1,7 +1,9 @@
-@baseUrl=http://localhost:5000
-
 ###
 GET {{baseUrl}}/products
+Accept:application/json
+
+###
+GET {{baseUrl}}/products/0191982c-59a7-451b-8d0d-a830bb5ff37a
 Accept:application/json
 
 ###

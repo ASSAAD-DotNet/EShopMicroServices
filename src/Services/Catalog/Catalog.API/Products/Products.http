@@ -8,7 +8,7 @@ Content-Type:application/json
 {
   "Name":"Product 1",
   "Description":"Description Product 1",
-  "Category":["Cat 1"],
+  "Category":["Cat 1","Cat 2"],
   "ImageFile":"ImageFile  Product 1",
-  "Price":102.52
+  "Price":102
 }

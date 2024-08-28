@@ -39,3 +39,7 @@ Content-Type:application/json
       "imageFile": "ImageFile  Product 1",
       "price": 102
 }
+
+###
+DELETE {{baseUrl}}/products/0191992a-0cc0-40e9-98a9-a3557835cb58
+Accept:application/json

@@ -1,6 +1,4 @@
-﻿using Catalog.API.Products.CreateProduct;
-
-namespace Catalog.API.Products.GetProductById;
+﻿namespace Catalog.API.Products.GetProductById;
 
 //public record GetProductByIdRequest(Guid Id);
 public record GetProductByIdResponse(Product Product);

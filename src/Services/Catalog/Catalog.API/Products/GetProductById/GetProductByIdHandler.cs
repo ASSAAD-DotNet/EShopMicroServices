@@ -1,7 +1,4 @@
-﻿using Catalog.API.Execption;
-
-namespace Catalog.API.Products.GetProductById;
-
+﻿namespace Catalog.API.Products.GetProductById;
 public record GetProductByIdQuery(Guid Id): IQuery<GetProductResult>;
 public record GetProductResult(Product Product);
 

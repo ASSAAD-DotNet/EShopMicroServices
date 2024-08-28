@@ -7,14 +7,18 @@ GET {{baseUrl}}/products/0191982c-59a7-451b-8d0d-a830bb5ff37a
 Accept:application/json
 
 ###
+GET {{baseUrl}}/products/category/Cat2
+Accept:application/json
+
+###
 POST {{baseUrl}}/products/
 Accept:application/json
 Content-Type:application/json
 
 {
-  "Name":"Product 1",
-  "Description":"Description Product 1",
-  "Category":["Cat 1","Cat 2"],
-  "ImageFile":"ImageFile  Product 1",
-  "Price":102
+  "Name":"Product 2",
+  "Description":"Description Product 2",
+  "Category":["Cat1","Cat2"],
+  "ImageFile":"ImageFile  Product 2",
+  "Price":187
 }

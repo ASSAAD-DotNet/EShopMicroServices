@@ -22,3 +22,20 @@ Content-Type:application/json
   "ImageFile":"ImageFile  Product 2",
   "Price":187
 }
+
+###
+PUT {{baseUrl}}/products/
+Accept:application/json
+Content-Type:application/json
+
+ {
+      "id": "0191982c-59a7-451b-8d0d-a830bb5ff37a",
+      "name": "Product 1",
+      "description": "Description Product 1",
+      "category": [
+        "Cat1",
+        "Cat2"
+      ],
+      "imageFile": "ImageFile  Product 1",
+      "price": 102
+}

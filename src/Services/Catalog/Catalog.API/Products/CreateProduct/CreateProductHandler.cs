@@ -11,16 +11,16 @@ internal class CreateProductCommandHandler
     (IDocumentSession session)
     :ICommandHandler<CreateProductCommand, CreateProductResult>
 {
-    public async Task<CreateProductResult> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+    public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
     {
         //Business logique to create Product
         var product = new Product()
         {
-            Name = request.Name,
-            Description = request.Description,
-            Category = request.Category,
-            ImageFile = request.ImageFile,
-            Price = request.Price,
+            Name = command.Name,
+            Description = command.Description,
+            Category = command.Category,
+            ImageFile = command.ImageFile,
+            Price = command.Price,
         };
 
         //Save to the data base

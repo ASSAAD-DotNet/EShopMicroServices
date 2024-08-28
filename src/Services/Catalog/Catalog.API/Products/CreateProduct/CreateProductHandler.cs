@@ -21,17 +21,11 @@ public class CreateProductCommandValidaitor
 }
 
 internal class CreateProductCommandHandler
-    (IDocumentSession session,IValidator<CreateProductCommand> validator)
+    (IDocumentSession session)
     :ICommandHandler<CreateProductCommand, CreateProductResult>
 {
     public async Task<CreateProductResult> Handle(CreateProductCommand command, CancellationToken cancellationToken)
     {
-        var validate = await validator.ValidateAsync(command);
-        var errors = validate.Errors.Select(x => x.ErrorMessage).ToList();
-        if (errors.Any())
-        {
-            throw new ValidationException(errors.FirstOrDefault());
-        }
         //Business logique to create Product
         var product = new Product()
         {

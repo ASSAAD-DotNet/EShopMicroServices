@@ -1,9 +1,9 @@
 ﻿namespace Catalog.API.Execption
 {
-    public class ProductNotFoundException : Exception
+    public class ProductNotFoundException : NotFoundException
     {
         public ProductNotFoundException(Guid Id)
-            :base($"The product id {Id} not found !")
+            :base(nameof(Product),Id)
         {
                 
         }

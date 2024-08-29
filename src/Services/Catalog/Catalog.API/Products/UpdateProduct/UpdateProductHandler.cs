@@ -9,7 +9,7 @@ public record UpdateProductCommand(Guid Id,
 
 public record UpdateProductCommandResult(bool IsSuccess);
 
-public class UpdateProductCommandValidaitor : AbstractValidator<UpdateProductCommand>
+public class UpdateProductCommandValidator : AbstractValidator<UpdateProductCommand>
 {
     public UpdateProductCommandValidator()
     {

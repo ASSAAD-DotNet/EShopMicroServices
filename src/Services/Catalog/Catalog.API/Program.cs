@@ -18,6 +18,13 @@ builder.Services.AddMarten(options => {
 
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 
+
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.InitializeMartenWith<CatalogInitailData>();
+} 
+
+
 var app = builder.Build();
 
 app.MapCarter();

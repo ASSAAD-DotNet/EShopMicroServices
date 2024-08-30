@@ -1,0 +1,17 @@
+
+###
+GET {{baseUrl}}/basket/Assaad
+Accept: applciation/json
+
+###
+DELETE {{baseUrl}}/basket/Assaad
+Accept: applciation/json
+
+###
+POST {{baseUrl}}/basket/
+Accept:application/json
+Content-Type:application/json
+
+{
+
+}

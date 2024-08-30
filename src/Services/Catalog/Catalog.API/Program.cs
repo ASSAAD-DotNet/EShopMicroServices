@@ -1,3 +1,5 @@
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 var assembly = typeof(Program).Assembly;
@@ -24,10 +26,16 @@ if (builder.Environment.IsDevelopment())
     builder.Services.InitializeMartenWith<CatalogInitailData>();
 } 
 
+builder.Services.AddHealthChecks()
+    .AddNpgSql(builder.Configuration.GetConnectionString("DataBase")!);
 
 var app = builder.Build();
 
 app.MapCarter();
 app.UseExceptionHandler(option=> { });
+app.MapHealthChecks("/Health", new HealthCheckOptions
+{
+     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});
 
 app.Run();

@@ -1,4 +1,8 @@
 ###
+GET {{baseUrl}}/Health
+Accept:application/json
+
+###
 GET {{baseUrl}}/products
 Accept:application/json
 

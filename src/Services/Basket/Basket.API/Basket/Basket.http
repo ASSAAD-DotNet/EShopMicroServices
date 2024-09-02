@@ -1,10 +1,9 @@
-
 ###
-GET {{baseUrl}}/basket/Assaad
+GET {{baseUrl}}/basket/assaad
 Accept: applciation/json
 
 ###
-DELETE {{baseUrl}}/basket/Assaad
+DELETE {{baseUrl}}/basket/assaad
 Accept: applciation/json
 
 ###
@@ -13,5 +12,23 @@ Accept:application/json
 Content-Type:application/json
 
 {
-
+   "Cart":{
+      "UserName":"assaad",
+      "Items":[
+         {
+            "Quantity":2,
+            "Color":"Red",
+            "Price":500,
+            "ProductId":"0191982c-59a7-451b-8d0d-a830bb5ff37a",
+            "ProductName":"IPhone X"
+         },
+         {
+            "Quantity":5,
+            "Color":"Blue",
+            "Price":400,
+            "ProductId":"0191982c-59a7-451b-8d0d-a830bb5ff37b",
+            "ProductName":"IPhone 12"
+         }
+      ]
+   }
 }

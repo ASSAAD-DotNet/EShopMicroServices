@@ -1,5 +1,5 @@
 ###
-GET {{baseUrl}}/basket/assaad
+GET {{baseUrl}}/basket/swn
 Accept: applciation/json
 
 ###

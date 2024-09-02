@@ -16,7 +16,14 @@ builder.Services.AddMarten(options => {
     options.Schema.For<ShoppingCart>().Identity(c => c.UserName);
 }).UseLightweightSessions();
 
+
 builder.Services.AddScoped<IBasketRepository, BasketRepository>();
+builder.Services.Decorate<IBasketRepository, CachedBasketRepository>();
+
+builder.Services.AddStackExchangeRedisCache(Option =>
+{
+    Option.Configuration = builder.Configuration.GetConnectionString("Redis");
+});
 
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 

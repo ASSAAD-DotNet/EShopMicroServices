@@ -1,4 +1,8 @@
 ###
+GET {{baseUrl}}/Health
+Accept: applciation/json
+
+###
 GET {{baseUrl}}/basket/assaad
 Accept: applciation/json
 

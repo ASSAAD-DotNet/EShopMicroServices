@@ -3,7 +3,7 @@ using static Discount.Grpc.DiscountProtoService;
 
 namespace Discount.Grpc.Services;
 
-public class DiscountProtoService : DiscountProtoServiceBase
+public class DiscountService : DiscountProtoServiceBase
 {
     public override Task<CouponModel> GetDiscount(GetDiscountRequest request, ServerCallContext context)
     {

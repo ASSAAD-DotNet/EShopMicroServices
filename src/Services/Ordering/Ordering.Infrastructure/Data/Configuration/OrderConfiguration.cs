@@ -13,9 +13,9 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
             .WithMany()
             .HasForeignKey(o => o.CustomerId);
 
-        builder.HasOne<OrderItem>()
-            .WithMany()
-            .HasForeignKey(o => o.OrderItems);
+        builder.HasMany(o => o.OrderItems)
+             .WithOne()
+             .HasForeignKey(oi => oi.OrderId);
 
         builder.ComplexProperty(
             o => o.OrderName, nameBuilder =>

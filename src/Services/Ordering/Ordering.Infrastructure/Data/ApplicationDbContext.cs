@@ -1,11 +1,14 @@
-﻿namespace Ordering.Infrastructure.Data;
+﻿using Ordering.Application.Data;
 
-public class ApplicationDbContext : DbContext
+namespace Ordering.Infrastructure.Data;
+
+public class ApplicationDbContext : DbContext , IApplicationDbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         :base(options)
     {        
     }
+
     public DbSet<Customer> Customers => Set<Customer>();
     public DbSet<Product>  Products => Set<Product>();
     public DbSet<Order>   Orders => Set<Order>();

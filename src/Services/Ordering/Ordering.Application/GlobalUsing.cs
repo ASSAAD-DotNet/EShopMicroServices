@@ -5,3 +5,5 @@ global using Ordering.Application.Data;
 global using Ordering.Domain.Models;
 global using Ordering.Domain.ValuesObjects;
 global using Ordering.Application.Exceptions;
+global using Ordering.Application.Extensions;
+global using Microsoft.EntityFrameworkCore;

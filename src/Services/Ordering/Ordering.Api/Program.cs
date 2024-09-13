@@ -1,3 +1,5 @@
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Ordering.Api;
 using Ordering.Application;
 using Ordering.Infrastructure;
@@ -11,8 +13,10 @@ builder.Services
     .AddInfrastructureServices(builder.Configuration)
     .AddApiServices();
 
-var app = builder.Build();
+builder.Services.AddHealthChecks()
+    .AddSqlServer(builder.Configuration.GetConnectionString("Database")!);
 
+var app = builder.Build();
 // Configure the http request pipeline.
 app.UserApiServices();
 
@@ -20,5 +24,10 @@ if (app.Environment.IsDevelopment())
 {
     await app.InitialiseDatabaseAsync();
 }
+
+app.MapHealthChecks("/Health", new HealthCheckOptions
+{
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});
 
 app.Run();

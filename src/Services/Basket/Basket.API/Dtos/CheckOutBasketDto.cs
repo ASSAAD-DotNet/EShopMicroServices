@@ -1,7 +1,5 @@
-﻿namespace BuildingBlocks.Messaging.Events;
-
-//BasketCheckoutEvent
-public record BasketCheckoutEvent : IntegrationEvent
+﻿namespace Basket.API.Dtos;
+public record CheckOutBasketDto
 {
     public string UserName { get; set; } = default!;
     public Guid CustomerId { get; set; } = default!;

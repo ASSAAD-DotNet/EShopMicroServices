@@ -6,25 +6,17 @@ public class GetOrdersByCustomerHandler(IApplicationDbContext dbContext)
     {
         // get orders by customer using dbContext
         // return result
-        try
-        {
-            var orders = await dbContext.Orders
-                         .Include(o => o.OrderItems)
-                         .AsNoTracking()
-                         .Where(o => o.CustomerId == CustomerId.Of(query.CustomerId))
-                         .OrderBy(o => o.OrderName.Value)
-                         .ToListAsync(cancellationToken);
+        var orders = await dbContext.Orders
+                        //.Include(o => o.OrderItems)
+                        .AsNoTracking()
+                        .Where(o => o.CustomerId == CustomerId.Of(query.CustomerId))
+                        .OrderBy(o => o.OrderName.Value)
+                        .ToListAsync(cancellationToken);
 
+        var orderItems = await dbContext.OrderItems
+                .Where(oi => orders.Select(o => o.Id).Contains(oi.OrderId))
+                .ToListAsync(cancellationToken);
 
-            return new GetOrdersByCustomerResult(orders.ToOrderDtoList());
-        }
-        catch (Exception ex)
-        {
-
-            throw ex;
-        }
-
-
-
+        return new GetOrdersByCustomerResult(orders.ToOrderDtoList(orderItems));
     }
 }

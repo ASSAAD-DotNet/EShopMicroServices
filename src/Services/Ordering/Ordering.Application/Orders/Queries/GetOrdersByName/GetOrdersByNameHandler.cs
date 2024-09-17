@@ -6,22 +6,17 @@ public class GetOrdersByNameHandler
 {
     public async Task<GetOrdersByNameResult> Handle(GetOrdersByNameQuery query, CancellationToken cancellationToken)
     {
-        try
-        {
-            var orders = await dbContext.Orders
-                    .Include(o => o.OrderItems)
+        var orders = await dbContext.Orders
+                    //.Include(o => o.OrderItems)
                     .AsNoTracking()
                     .Where(o => o.OrderName.Value.Contains(query.OrderName))
                     .OrderBy(o => o.OrderName.Value)
-                    .ToListAsync();
+                    .ToListAsync(cancellationToken);
 
-            return new GetOrdersByNameResult(orders.ToOrderDtoList());
-        }
-        catch (Exception ex)
-        {
+        var orderItems = await dbContext.OrderItems
+                  .Where(oi => orders.Select(o => o.Id).Contains(oi.OrderId))
+                  .ToListAsync(cancellationToken);
 
-            throw ex;
-        }
-        
+        return new GetOrdersByNameResult(orders.ToOrderDtoList(orderItems));
     }
 }

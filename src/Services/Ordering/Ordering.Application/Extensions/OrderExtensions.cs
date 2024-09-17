@@ -2,7 +2,7 @@
 
 public static class OrderExtensions
 {
-    public static IEnumerable<OrderDto> ToOrderDtoList(this IEnumerable<Order> orders)
+    public static IEnumerable<OrderDto> ToOrderDtoList(this IEnumerable<Order> orders, IEnumerable<OrderItem>  orderItems)
     {
         return orders.Select(order => new OrderDto(
             Id: order.Id.Value,
@@ -12,7 +12,7 @@ public static class OrderExtensions
             BillingAddress: new AddressDto(order.BillingAddress.FirstName, order.BillingAddress.LastName, order.BillingAddress.EmailAddress!, order.BillingAddress.AddressLine, order.BillingAddress.Country, order.BillingAddress.State, order.BillingAddress.ZipCode),
             Payment: new PaymentDto(order.Payment.CardName!, order.Payment.CardNumber, order.Payment.Expiration, order.Payment.CVV, order.Payment.PaymentMethod),
             Status: order.Status,
-            OrderItems: order.OrderItems.Select(oi => new OrderItemDto(oi.OrderId.Value, oi.ProductId.Value, oi.Quantity, oi.Price)).ToList()
+            OrderItems: orderItems.Select(oi => new OrderItemDto(oi.OrderId.Value, oi.ProductId.Value, oi.Quantity, oi.Price)).ToList()
         ));
     }
 

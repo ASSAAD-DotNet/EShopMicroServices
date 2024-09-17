@@ -8,7 +8,7 @@ Accept: application/json
 
 
 ###
-GET {{baseUrl}}/orders/ORD_4
+GET {{baseUrl}}/orders/assaad
 Accept: application/json
 
 

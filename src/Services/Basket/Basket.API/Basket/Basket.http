@@ -36,3 +36,27 @@ Content-Type:application/json
       ]
    }
 }
+
+###
+POST {{baseUrl}}/basket/checkout
+Accept:application/json
+Content-Type:application/json
+
+{
+   "CheckOutBasketDto":{
+      "userName":"assaad",
+      "customerId":"189dc8dc-990f-48e0-a37b-e6f2b60b9d7d",
+      "firstName":"john",
+      "lastName":"doe",
+      "emailAddress":"john@gmail.com",
+      "addressLine":"Broadway No:1",
+      "country":"England",
+      "state":"Nottingham",
+      "zipCode":"08050",
+      "cardName":"john",
+      "cardNumber":"8885555555554444",
+      "expiration":"06/30",
+      "cvv":"222",
+      "paymentMethod":2
+   }
+}

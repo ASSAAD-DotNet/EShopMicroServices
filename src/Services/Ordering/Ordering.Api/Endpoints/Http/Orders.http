@@ -11,6 +11,11 @@ Accept: application/json
 GET {{baseUrl}}/orders/ORD_4
 Accept: application/json
 
+
+###
+DELETE {{baseUrl}}/orders/2e01a2d5-c41e-40f9-910b-f09c67c420de
+Accept: application/json
+
 ###
 POST  {{baseUrl}}/orders
 Accept: application/json

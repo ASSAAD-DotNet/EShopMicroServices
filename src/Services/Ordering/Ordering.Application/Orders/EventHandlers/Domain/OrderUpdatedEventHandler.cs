@@ -2,13 +2,13 @@
 using Microsoft.Extensions.Logging;
 using Ordering.Domain.Events;
 
-namespace Ordering.Application.Orders.EventHandlers;
+namespace Ordering.Application.Orders.EventHandlers.Domain;
 
-public class OrderCreatedEventHandler
+public class OrderUpdatedEventHandler
     (ILogger<OrderCreatedEventHandler> logger)
-    : INotificationHandler<OrderCreatedEvent>
+    : INotificationHandler<OrderUpdatedEvent>
 {
-    public Task Handle(OrderCreatedEvent notification, CancellationToken cancellationToken)
+    public Task Handle(OrderUpdatedEvent notification, CancellationToken cancellationToken)
     {
         logger.LogInformation("Domain Event handled: {DomainEvent}", notification.GetType().Name);
         return Task.CompletedTask;

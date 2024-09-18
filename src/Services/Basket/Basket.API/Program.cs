@@ -1,3 +1,4 @@
+using BuildingBlocks.Messaging.MassTransit;
 using Discount.Grpc;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -40,13 +41,13 @@ builder.Services
         return handler;
     });
 
-builder.Services.AddExceptionHandler<CustomExceptionHandler>();
+builder.Services.AddMessageBroker(builder.Configuration);
 
+builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 
 builder.Services.AddHealthChecks()
     .AddNpgSql(builder.Configuration.GetConnectionString("DataBase")!)
     .AddRedis(builder.Configuration.GetConnectionString("Redis")!);
-
 
 var app = builder.Build();
 

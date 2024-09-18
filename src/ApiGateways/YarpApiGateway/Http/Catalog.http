@@ -1,0 +1,12 @@
+###
+GET {{baseUrl}}/catalog-service/products
+Accept:application/json
+
+###
+GET {{baseUrl}}/catalog-service/products/c4bbc4a2-4555-45d8-97cc-2a99b2167bff
+Accept:application/json
+
+
+###
+GET {{baseUrl}}/catalog-service/products?pageNumber=2&pageSize=2
+Accept:application/json

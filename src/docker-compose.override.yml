@@ -143,7 +143,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8081
-      - ApiSettings__GatewayAddress = http://yarpapigateway:8080
+      - ApiSettings__GatewayAddress=http://yarpapigateway:8080
     depends_on:
       - yarpapigateway
     ports:

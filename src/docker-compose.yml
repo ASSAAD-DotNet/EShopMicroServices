@@ -1,30 +1,30 @@
 version: '3.4'
 
 services:
-  catalogdb:
-    image: postgres
-  basketdb:
-    image: postgres
-  distributedcache:
-    image: redis
+  # catalogdb:
+  #   image: postgres
+  # basketdb:
+  #   image: postgres
+  # distributedcache:
+  #   image: redis
 
-  orderdb:
-    image: mcr.microsoft.com/mssql/server
+  # orderdb:
+  #   image: mcr.microsoft.com/mssql/server
 
-  messagebroker:
-    image: rabbitmq:management
+  # messagebroker:
+  #   image: rabbitmq:management
 
-  catalog.api:
-    image: ${DOCKER_REGISTRY-}catalogapi
-    build:
-      context: .
-      dockerfile: Services/Catalog/Catalog.API/Dockerfile
+  # catalog.api:
+  #   image: ${DOCKER_REGISTRY-}catalogapi
+  #   build:
+  #     context: .
+  #     dockerfile: Services/Catalog/Catalog.API/Dockerfile
 
-  basket.api:
-    image: ${DOCKER_REGISTRY-}basketapi
-    build:
-      context: .
-      dockerfile: Services/Basket/Basket.API/Dockerfile
+  # basket.api:
+  #   image: ${DOCKER_REGISTRY-}basketapi
+  #   build:
+  #     context: .
+  #     dockerfile: Services/Basket/Basket.API/Dockerfile
 
   discount.grpc:
     image: ${DOCKER_REGISTRY-}discountgrpc
@@ -32,27 +32,38 @@ services:
       context: .
       dockerfile: Services/Discount/Discount.Grpc/Dockerfile
 
-  ordering.api:
-    image: ${DOCKER_REGISTRY-}orderingapi
-    build:
-      context: .
-      dockerfile: Services/Ordering/Ordering.Api/Dockerfile
+  # ordering.api:
+  #   image: ${DOCKER_REGISTRY-}orderingapi
+  #   build:
+  #     context: .
+  #     dockerfile: Services/Ordering/Ordering.Api/Dockerfile
 
-  yarpapigateway:
-    image: ${DOCKER_REGISTRY-}yarpapigateway
-    build:
-      context: .
-      dockerfile: ApiGateways/YarpApiGateway/Dockerfile
+  # yarpapigateway:
+  #   image: ${DOCKER_REGISTRY-}yarpapigateway
+  #   build:
+  #     context: .
+  #     dockerfile: ApiGateways/YarpApiGateway/Dockerfile
 
-  shopping.web:
-    image: ${DOCKER_REGISTRY-}shoppingweb
-    build:
-      context: .
-      dockerfile: WebApps/Shopping.Web/Dockerfile
+  # shopping.web:
+  #   image: ${DOCKER_REGISTRY-}shoppingweb
+  #   build:
+  #     context: .
+  #     dockerfile: WebApps/Shopping.Web/Dockerfile
+
+  sonarqube:
+     image: sonarqube
+  sonarqube-database:
+    image: postgres
 
 volumes:
-  postgres_catalog:
-  postgres_basket:
+  # postgres_catalog:
+  # postgres_basket:
+  sonarqube_database_data:
+  sonarqube_bundled-plugins:
+  sonarqube_conf:
+  sonarqube_data:
+  sonarqube_database:
+  sonarqube_extensions:
 
 
 

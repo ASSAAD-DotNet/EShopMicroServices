@@ -9,13 +9,21 @@ public record UpdateProductCommand(Guid Id,
 
 public record UpdateProductCommandResult(bool IsSuccess);
 
+public class UpdateProductCommandValidator : AbstractValidator<UpdateProductCommand>
+{
+    public UpdateProductCommandValidator()
+    {
+        RuleFor(x => x.Id).NotEmpty().WithMessage("ID is required"); 
+        RuleFor(x => x.Name).NotEmpty().WithMessage("Name is required");
+        RuleFor(x => x.Price).GreaterThan(0).WithMessage("Price must be greater then 0");
+    }
+}
 internal class UpdateProductCommandHandler
-    (IDocumentSession session, ILogger<UpdateProductCommandHandler> logger)
+    (IDocumentSession session)
     : ICommandHandler<UpdateProductCommand, UpdateProductCommandResult>
 {
     public async Task<UpdateProductCommandResult> Handle(UpdateProductCommand command, CancellationToken cancellationToken)
     {
-        logger.LogInformation("UpdateProductCommandHandler.Handle call with {@command}", command);
         var product = await session.LoadAsync<Product>(command.Id, cancellationToken);
 
         if (product is null)

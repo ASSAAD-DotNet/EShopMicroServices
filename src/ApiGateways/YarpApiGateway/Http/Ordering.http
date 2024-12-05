@@ -1,0 +1,68 @@
+###
+GET {{baseUrl}}/ordering-service/Health
+Accept:application/json
+
+###
+GET {{baseUrl}}/ordering-service/orders/customer/189dc8dc-990f-48e0-a37b-e6f2b60b9d7d
+Accept: application/json
+
+
+###
+GET {{baseUrl}}/ordering-service/orders/assaad
+Accept: application/json
+
+
+###
+DELETE {{baseUrl}}/ordering-service/orders/2e01a2d5-c41e-40f9-910b-f09c67c420de
+Accept: application/json
+
+###
+POST  {{baseUrl}}/ordering-service/orders
+Accept: application/json
+Content-Type:application/json
+
+{
+   "Order":{
+      "id":"40b71975-4129-4ee2-8ab2-05f5a09e7968",
+      "customerId":"189dc8dc-990f-48e0-a37b-e6f2b60b9d7d",
+      "orderName":"ORD_4",
+      "shippingAddress":{
+         "firstName":"john",
+         "lastName":"doe",
+         "emailAddress":"john@gmail.com",
+         "addressLine":"Broadway No:1",
+         "country":"England",
+         "state":"Nottingham",
+         "zipCode":"08050"
+      },
+      "billingAddress":{
+         "firstName":"john",
+         "lastName":"doe",
+         "emailAddress":"john@gmail.com",
+         "addressLine":"Broadway No:1",
+         "country":"England",
+         "state":"Nottingham",
+         "zipCode":"08050"
+      },
+      "payment":{
+         "cardName":"john",
+         "cardNumber":"8885555555554444",
+         "expiration":"06/30",
+         "cvv":"222",
+         "paymentMethod":2
+      },
+      "status":2,
+      "orderItems":[
+         {
+            "ProductId":"5334c996-8457-4cf0-815c-ed2b77c4ff61",
+            "Quantity":10,
+            "Price":100
+         },
+         {
+            "ProductId":"c67d6323-e8b1-4bdf-9a75-b0d0d2e7e914",
+            "Quantity":5,
+            "Price":500
+         }
+      ]
+   }
+}

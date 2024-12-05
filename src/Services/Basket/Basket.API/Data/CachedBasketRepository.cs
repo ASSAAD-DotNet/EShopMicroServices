@@ -1,0 +1,32 @@
+﻿namespace Basket.API.Data;
+
+public class CachedBasketRepository
+    (IBasketRepository repository, IDistributedCache cache)
+    : IBasketRepository
+{
+    public async Task<ShoppingCart> GetBasket(string userName, CancellationToken cancellationToken = default)
+    {
+        var cacheBasket = await cache.GetStringAsync(userName, cancellationToken);
+        if (!string.IsNullOrEmpty(cacheBasket))
+        {
+            return JsonSerializer.Deserialize<ShoppingCart>(cacheBasket);
+        }
+        var basket = await repository.GetBasket(userName, cancellationToken);
+        await cache.SetStringAsync(userName, JsonSerializer.Serialize<ShoppingCart>(basket), cancellationToken);
+        return basket;
+    }
+
+    public async Task<ShoppingCart> StoreBacket(ShoppingCart basket, CancellationToken cancellationToken = default)
+    {
+        await repository.StoreBacket(basket, cancellationToken);
+        await cache.SetStringAsync(basket.UserName, JsonSerializer.Serialize<ShoppingCart>(basket), cancellationToken);
+        return basket;
+    }
+
+    public async Task<bool> DeleteBasket(string userName, CancellationToken cancellationToken = default)
+    {
+        await repository.DeleteBasket(userName, cancellationToken);
+        await cache.RemoveAsync(userName, cancellationToken);
+        return true;
+    }
+}
